@@ -1,0 +1,20 @@
+<div *ngIf="todo">
+
+  <h2>{{ todo.title | uppercase }}</h2>
+  <div>
+    <div>
+        <span>Tytuł: </span>
+        <input type="text" name="title" id="title" [(ngModel)]="todo.title" placeholder="title" class="form-control">
+      <span>Treść: </span>
+      <input type="text" name="description" id="description" [(ngModel)]="todo.description" placeholder="description" class="form-control">
+      <p>{{todo.description}}</p>
+      <span>Data: </span>
+      <p>{{todo.date}}</p>
+      <span>Status: </span>
+      <p>{{todo.status}}</p>
+    </div>
+
+  </div>
+  <button class="btn btn-success" (click)="editTodo(todo)">Edytuj</button>
+  <button class="btn btn-danger" (click)="deleteTodo(todo)">Usuń</button>
+  <button class="btn btn-dark" (click)="goBack()">Powrót</button>

@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng build --watch && nodemon server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -23,10 +23,12 @@
     "@angular/router": "^5.0.0",
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
     "mongoose": "^4.13.7",
+    "ngx-bootstrap": "^2.0.0-rc.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
