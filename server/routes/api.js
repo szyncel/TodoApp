@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var mongoose = require('mongoose');
+var _ = require('lodash');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/angular-todo', {
@@ -13,7 +14,14 @@ const {
   ObjectID
 } = require('mongodb');
 var _ = require('lodash');
-var Todo = require('../models/todo.model').Todo
+var Todo = require('../models/todo.model').Todo;
+var {
+  User
+} = require('../models/user.model');
+var {
+  authenticate
+} = require('../middleware/authenticate');
+
 
 
 
@@ -86,9 +94,9 @@ router.delete('/:id', (req, res) => {
   var id = req.params.id;
   if (!ObjectID.isValid(id)) {
     return res.status(404).send({
-        info: "invalidId"
+      info: "invalidId"
     });
-}
+  }
   Todo.findByIdAndRemove(id).then((todo) => {
     if (!todo) {
       return res.status(404).send();
@@ -98,6 +106,50 @@ router.delete('/:id', (req, res) => {
     res.status(400).send({});
   })
 });
+
+/* .............USERS............. */
+
+router.post('/users', (req, res) => {
+  var body = _.pick(req.body, ['email', 'password']);
+  var user = new User({
+    email:body.email,
+    password:body.password,
+    role:'user'
+  });
+
+  user.save().then(() => {
+    //return user.generateAuthToken();
+    res.status(200).send(user);
+  }).catch((e) => {
+    res.status(400).send(e);
+  })
+})
+
+router.post('/users/login', (req, res) => {
+  var body = _.pick(req.body, ['email', 'password']);
+
+  User.findbyCredentials(body.email, body.password).then((user) => {
+    return user.generateAuthToken().then((token) => {
+      res.header('x-auth', token).send({
+        message: 'Successfully logged in',
+        token: token,
+        userId: user._id
+      });
+    })
+  }).catch((e) => {
+    res.status(400).send(e);
+  });
+
+})
+
+router.delete('/users/me/token', authenticate, (req, res) => {
+  req.user.removeToken(req.token).then(() => {
+      res.status(200).send();
+  }, () => {
+      res.status(400).send();
+  });
+});
+
 
 
 module.exports = router;

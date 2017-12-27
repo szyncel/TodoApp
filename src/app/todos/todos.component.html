@@ -4,7 +4,7 @@
   <li *ngFor="let todo of todosList">
     <span>{{todo.title}}</span> {{todo.description}}
     <p>data: {{todo.date}}</p>
-    <a [routerLink]="['detail/', todo._id]" class="btn btn-success">Szczegóły</a>
+    <a [routerLink]="['/detail/', todo._id]" class="btn btn-success">Szczegóły</a>
   </li>
 </ul>
 

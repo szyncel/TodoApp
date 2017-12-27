@@ -10,13 +10,20 @@ import { TodosComponent } from './todos/todos.component';
 import { TodoService } from './todo.service';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    TodoDetailComponent
+    TodoDetailComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -25,7 +32,7 @@ import { AppRoutingModule } from './/app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [TodoService],
+  providers: [TodoService, AuthService, AuthGuard, AdminAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

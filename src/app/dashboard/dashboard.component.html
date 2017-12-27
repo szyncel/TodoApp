@@ -1,0 +1,20 @@
+<h2>Strona główna</h2><hr>
+
+
+    <p class="lead">Hello <span *ngIf="authService.isLoggedIn()">{{authService.currentUser.name}}</span></p>
+    <!-- {{authService.currentUser.role}} -->
+<ul>
+    <li *ngIf="!authService.isLoggedIn()">
+        <a class="btn btn-primary" routerLink="/login" role="button">Login</a>
+    </li>
+    <li *ngIf="authService.isLoggedIn() && authService.currentUser.role=='admin'">
+        <a  class="btn btn-info" routerLink="/todos" role="button">Notatki-Admin</a>
+    </li>
+    <li *ngIf="authService.isLoggedIn()">
+        <a class="btn btn-info" (click)="authService.logout()" role="button">Wyloguj</a>
+    </li>
+</ul>
+
+
+
+
