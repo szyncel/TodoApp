@@ -1,18 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Response } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Todo } from './todo';
 
 import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class TodoService {
 
   constructor(private http: HttpClient) { }
 
+
+  createAuthorizationHeader(headers: Headers) {
+    headers.append('x-auth', 'trasdasda');
+  }
+
   getToDos(): Observable<Todo[]> {
-    return this.http.get('/api')
+    let token = localStorage.getItem('token');
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('x-auth', token);
+
+    return this.http.get('/api', {
+      headers: headers
+    })
       .map(res => {
         return res["todos"] as Todo[];
       });
@@ -37,7 +50,7 @@ export class TodoService {
       .map(res => {
         return res;
       })
-    }
+  }
 
 
 

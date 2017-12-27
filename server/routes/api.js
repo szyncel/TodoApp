@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
 });
 
 /* GET ALL TODOS */
-router.get('/', (req, res) => {
+router.get('/', authenticate, (req, res) => {
   Todo.find({}).then((todos) => {
     res.send({
       todos
