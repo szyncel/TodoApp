@@ -22,4 +22,4 @@
     </ul>     
   </div>
 </nav>
-<p class="lead">Hello <span *ngIf="authService.isLoggedIn()">{{authService.currentUser.name}}</span></p>
+<p *ngIf="authService.isLoggedIn() && authService.currentUser.name" class="lead">{{authService.currentUser.name}}</p>

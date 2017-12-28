@@ -1,7 +1,27 @@
-span{
-  font-weight: 600;  
+span {
+  font-weight: 600;
 }
 
-form{
+form {
   margin-bottom: 10px;
 }
+
+.list-group-item {
+  background-color: #F7F7F7;
+  margin-bottom: 4px;
+}
+.list-group-item:hover{
+  background-color: rgb(214, 176, 176);
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.list-group-item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+

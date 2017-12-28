@@ -1,11 +1,25 @@
+<!-- <div class="container">
 
-<h2>Logowanie</h2><hr>
-<form #f2="ngForm" (ngSubmit)="login(f2)" novalidate>
-  <div class="form-group">
-    <input ngModel name="email" #email="ngModel" type="email" class="form-control" id="exampleInputEmail1"  placeholder="Podaj adres email">
-  </div>
-  <div class="form-group">
-    <input ngModel name="password" #password="ngModel" type="password" class="form-control" id="exampleInputPassword1" placeholder="Podaj hasło">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <h2>Logowanie</h2>
+  <hr>
+  <form #f2="ngForm" (ngSubmit)="login(f2)" novalidate>
+    <div class="form-group">
+      <input ngModel name="email" #email="ngModel" type="email" class="form-control" id="exampleInputEmail1" placeholder="Podaj adres email">
+    </div>
+    <div class="form-group">
+      <input ngModel name="password" #password="ngModel" type="password" class="form-control" id="exampleInputPassword1" placeholder="Podaj hasło">
+    </div>
+    <button type="submit" class="btn btn-primary">Zaloguj</button>
+  </form>
+</div> -->
+
+
+<div @slide class="form-style-6">
+  <h1>Logowanie</h1>
+  <form #f2="ngForm" (ngSubmit)="login(f2)">
+    <input ngModel #email="ngModel" type="text" name="email" placeholder="Twój Email" />
+    <input ngModel #password="ngModel" type="password" name="password"  placeholder="Twoje hasło" />
+    <!-- <textarea name="field3" placeholder="Type your Message"></textarea> -->
+    <input type="submit" value="Zaloguj" />
+  </form>
+</div>

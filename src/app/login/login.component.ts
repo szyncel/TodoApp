@@ -5,11 +5,16 @@ import { User } from '../user';
 import { AuthService } from '../auth.service';
 import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { slide, fade } from '../animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    fade,
+    slide
+  ]
 })
 export class LoginComponent{
 

@@ -1,4 +1,4 @@
-<h2>Rejestracja</h2><hr>
+<!-- <h2>Rejestracja</h2><hr>
 <form #f="ngForm" (ngSubmit)="submit(f)" novalidate>
   <div class="form-group">
     <input ngModel name="email" #email="ngModel" type="email" class="form-control" id="exampleInputEmail1"  placeholder="Podaj adres email">
@@ -7,4 +7,15 @@
     <input ngModel name="password" #password="ngModel" type="password" class="form-control" id="exampleInputPassword1" placeholder="Podaj hasło">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form> -->
+
+
+<div @slide class="form-style-6">
+    <h1>Rejestracja</h1>
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+      <input ngModel #email="ngModel" type="text" name="email" placeholder="Twój Email" />
+      <input ngModel #password="ngModel" type="password" name="password"  placeholder="Twoje hasło" />
+      <!-- <textarea name="field3" placeholder="Type your Message"></textarea> -->
+      <input type="submit" value="Zarejestruj" />
+    </form>
+  </div>
