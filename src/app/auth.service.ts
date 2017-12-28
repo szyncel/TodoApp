@@ -6,23 +6,31 @@ import { Observable } from 'rxjs/Observable';
 import { JwtHelper, tokenNotExpired } from 'angular2-jwt';
 
 import 'rxjs/add/operator/map';
+import { Router } from '@angular/router';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router) { }
 
-  get currentUser(){
-    let token=localStorage.getItem('token');
-    if(!token)return null;
+    
 
-    let jwtHelper=new JwtHelper();
+  get currentUser() {
+    let token = localStorage.getItem('token');
+    if (!token) return null;
+
+    let jwtHelper = new JwtHelper();
     return jwtHelper.decodeToken(token);
   }
 
-  signup(user: User) {
+  signup(user: User): Observable<User> {
     //const body= JSON.stringify(user);
-    return this.http.post('/api/users', user)
+    return this.http.post<User>('/api/users', user)
+    .map(res => res)
+      
+      
   }
 
   signin(user: User): Observable<any> {
@@ -39,13 +47,8 @@ export class AuthService {
   }
 
   logout() {
-    // console.log('klik');
-    // let token = localStorage.getItem('token');
-    // console.log(token);
-    // this.http.delete(`/api/users/me/token`)
-    //   .map(response => console.log(response))
     localStorage.removeItem('token');
-
+    this.router.navigateByUrl('/');
   }
 
   isLoggedIn() {

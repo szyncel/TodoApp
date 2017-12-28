@@ -11,29 +11,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  // myform: FormGroup;
+export class LoginComponent{
+
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService) { }
 
-  ngOnInit() {
-
-  }
-
-  submit(form) {
-    const user = new User(
-      form.value.email,
-      form.value.password);
-    //console.log(form.value);
-    this.authService.signup(user)
-      .subscribe((res: Response) => {
-        console.log(res);
-        // you can assign the value to any variable here
-      });
-  }
 
   login(form) {
     const user = new User(

@@ -38,7 +38,11 @@ export class TodoService {
   }
 
   createTodo(todo: Todo): Observable<any> {
-    return this.http.post('/api', todo);
+    let token = localStorage.getItem('token');
+    const headers = new HttpHeaders()
+      .set('x-auth', token);
+
+    return this.http.post('/api', todo,{headers:headers});
   }
 
   editTodo(todo: Todo) {

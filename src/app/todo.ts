@@ -4,6 +4,7 @@ export class Todo {
     description: string;
     date: Date;
     status: string;
+    _creator:string;
 
     constructor(
     ) {
@@ -11,5 +12,6 @@ export class Todo {
         this.description = ""
         this.date = new Date()
         this.status = ""
+        this._creator=""
     }
 }

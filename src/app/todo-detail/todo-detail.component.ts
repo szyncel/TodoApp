@@ -3,11 +3,17 @@ import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { fade, slide, slideLeft } from '../animations';
 
 @Component({
   selector: 'app-todo-detail',
   templateUrl: './todo-detail.component.html',
-  styleUrls: ['./todo-detail.component.css']
+  styleUrls: ['./todo-detail.component.css'],
+  animations: [
+    fade,
+    slide,
+    slideLeft
+  ]
 })
 export class TodoDetailComponent implements OnInit {
   todo: Todo;

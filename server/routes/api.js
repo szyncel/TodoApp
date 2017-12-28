@@ -27,12 +27,13 @@ var {
 
 
 /* ADD TODO */
-router.post('/', (req, res) => {
+router.post('/',authenticate, (req, res) => {
   var todo = new Todo({
     title: req.body.title,
     description: req.body.description,
     date: new Date(),
-    status: req.body.status
+    status: req.body.status,
+    _creator: req.body._creator
   });
   // console.log(todo);
   todo.save().then((doc) => {
@@ -45,7 +46,9 @@ router.post('/', (req, res) => {
 
 /* GET ALL TODOS */
 router.get('/', authenticate, (req, res) => {
-  Todo.find({}).then((todos) => {
+  Todo.find({
+    _creator: req.user._id
+  }).then((todos) => {
     res.send({
       todos
     });
@@ -112,16 +115,22 @@ router.delete('/:id', (req, res) => {
 router.post('/users', (req, res) => {
   var body = _.pick(req.body, ['email', 'password']);
   var user = new User({
-    email:body.email,
-    password:body.password,
-    role:'user'
+    email: body.email,
+    password: body.password,
+    role: 'user'
   });
 
   user.save().then(() => {
     //return user.generateAuthToken();
-    res.status(200).send(user);
+    res.status(200).json({
+      message: 'User created',
+      user
+    });
   }).catch((e) => {
-    res.status(400).send(e);
+    res.status(400).json({
+      title: 'Error fucking',
+      error: e
+    });
   })
 })
 
@@ -144,9 +153,9 @@ router.post('/users/login', (req, res) => {
 
 router.delete('/users/me/token', authenticate, (req, res) => {
   req.user.removeToken(req.token).then(() => {
-      res.status(200).send();
+    res.status(200).send();
   }, () => {
-      res.status(400).send();
+    res.status(400).send();
   });
 });
 
