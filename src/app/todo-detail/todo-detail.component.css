@@ -1,7 +1,13 @@
-span{
-    font-weight: 600;
+
+.form-control {
+  padding: 1%;
 }
 
-p{
-    margin-bottom: 0;
+input[type="text"]:focus,
+.form-control select:focus {
+  padding: 1.5%;
 }
+
+.primary {  
+    padding: 1%;
+  }

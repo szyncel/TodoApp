@@ -1,21 +1,19 @@
-
 <div class="container" @slideLeft *ngIf="todo">
-
-  <h2>{{ todo.title | uppercase }}</h2>
-  <div>
+  <div class="formstyle2">
+    <h2>{{ todo.title | uppercase }}</h2>
+    <hr>
     <div>
-        <span>Tytuł: </span>
+      <div>
         <input type="text" name="title" id="title" [(ngModel)]="todo.title" placeholder="title" class="form-control">
-      <span>Treść: </span>
-      <input type="text" name="description" id="description" [(ngModel)]="todo.description" placeholder="description" class="form-control">
-      <p>{{todo.description}}</p>
-      <span>Data: </span>
-      <p>{{todo.date}}</p>
-      <span>Status: </span>
-      <p>{{todo.status}}</p>
-    </div>
+        <input type="text" name="description" id="description" [(ngModel)]="todo.description" placeholder="description" class="form-control">
+        <span>Data: </span>
+        <p>{{todo.date}}</p>
+        <span>Status: </span>
+        <p>{{todo.status}}</p>
+      </div>
 
+    </div>
+    <button type="button" class="primary" (click)="editTodo(todo)">Edytuj</button>
+    <button type="button" class="primary" (click)="deleteTodo(todo)">Usuń</button>
+    <button type="button" class="primary" (click)="goBack()">Powrót</button>
   </div>
-  <button class="btn btn-success" (click)="editTodo(todo)">Edytuj</button>
-  <button class="btn btn-danger" (click)="deleteTodo(todo)">Usuń</button>
-  <button class="btn btn-dark" (click)="goBack()">Powrót</button>

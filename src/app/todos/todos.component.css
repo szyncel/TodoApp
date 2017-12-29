@@ -7,11 +7,17 @@ form {
 }
 
 .list-group-item {
-  background-color: #F7F7F7;
+  color: white;
+  background-color: rgb(151, 56, 56);
   margin-bottom: 4px;
 }
-.list-group-item:hover{
-  background-color: rgb(214, 176, 176);
+
+.list-group-item:nth-child(odd) {
+  background: rgb(151, 78, 78);
+}
+
+.list-group-item:hover {
+  background-color: rgba(151, 56, 56, 0.747);
 }
 
 .list-group-item:first-child {
