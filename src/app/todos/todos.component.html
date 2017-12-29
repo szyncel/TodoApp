@@ -1,30 +1,31 @@
 <div class="container">
-  <h1 @slide >Moje notatki</h1><hr>
+  <h1 @slide>My Todos</h1>
+  <hr>
   <div class="formstyle2">
     <form>
       <div class="form-row">
         <div class="col-md-5">
-          <input type="text" [(ngModel)]="newTodo.title" name="title" id="title" placeholder="Tytuł" class="form-control">
+          <input type="text" [(ngModel)]="newTodo.title" name="title" id="title" placeholder="Title" class="form-control">
         </div>
         <div class="col-md-5">
-          <input type="text" [(ngModel)]="newTodo.description" name="description" id="description" placeholder="Treść" class="form-control"
+          <input type="text" [(ngModel)]="newTodo.description" name="description" id="description" placeholder="Description" class="form-control"
             id="description">
         </div>
         <div class="col-md-2">
-          <button type="submit" class="primary" (click)="create()">Dodaj</button>
+          <button type="submit" class="primary" (click)="create()">Add</button>
         </div>
       </div>
     </form>
- 
 
-  <div class="list-group">
-    <a *ngFor="let todo of todosList" @fade [routerLink]="['/detail/', todo._id]" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{todo.title}}</h5>
-        <small>{{todo.date}}</small>
-      </div>
-      <p class="mb-1">{{todo.description}}</p>
-    </a>
+
+    <div class="list-group">
+      <a *ngFor="let todo of todosList" @fade [routerLink]="['/detail/', todo._id]" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{todo.title}}</h5>
+          <small>{{todo.date | date: 'dd-MM-yyyy HH:mm:ss' }}</small>
+        </div>
+        <p class="mb-1">{{todo.description}}</p>
+      </a>
+    </div>
   </div>
-</div> </div>
-
+</div>

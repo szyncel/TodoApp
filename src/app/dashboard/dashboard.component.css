@@ -5,3 +5,9 @@ h1{
     font-size: 56px;
     font-weight: 50;
 }
+
+p{
+    text-align: center;
+    font-size: 18px;
+    color: rgb(75, 75, 75);
+}

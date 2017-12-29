@@ -1,5 +1,6 @@
 <h1>Do something.</h1>
-
+<p *ngIf="!authService.isLoggedIn()" class="lead">You must login if you want do something.</p>
+<p *ngIf="authService.isLoggedIn()" class="lead">You are now logged in.</p>
 
 
 

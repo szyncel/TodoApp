@@ -1,3 +1,5 @@
+import { getLocaleDateTimeFormat } from '@angular/common';
+
 export class Todo {
     _id: string;
     title: string;
@@ -10,7 +12,7 @@ export class Todo {
     ) {
         this.title = ""
         this.description = ""
-        this.date = new Date()
+        this.date = new Date();
         this.status = ""
         this._creator=""
     }

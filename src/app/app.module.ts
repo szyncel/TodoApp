@@ -4,6 +4,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -36,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule.forRoot()
   ],
   providers: [TodoService, AuthService, AuthGuard, AdminAuthGuard],
   bootstrap: [AppComponent]

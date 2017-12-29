@@ -6,14 +6,14 @@
       <div>
         <input type="text" name="title" id="title" [(ngModel)]="todo.title" placeholder="title" class="form-control">
         <input type="text" name="description" id="description" [(ngModel)]="todo.description" placeholder="description" class="form-control">
-        <span>Data: </span>
-        <p>{{todo.date}}</p>
-        <span>Status: </span>
-        <p>{{todo.status}}</p>
+        <span>Date: </span>
+        <p>{{todo.date | date: 'dd-MM-yyyy HH:mm:ss' }}</p>
+        <!-- <span>Status: </span>
+        <p>{{todo.status}}</p> -->
       </div>
 
     </div>
-    <button type="button" class="primary" (click)="editTodo(todo)">Edytuj</button>
-    <button type="button" class="primary" (click)="deleteTodo(todo)">Usuń</button>
-    <button type="button" class="primary" (click)="goBack()">Powrót</button>
+    <button type="button" class="primary" (click)="editTodo(todo)">Edit</button>
+    <button type="button" class="primary" (click)="deleteTodo(todo)">Delete</button>
+    <button type="button" class="primary" (click)="goBack()">Back</button>
   </div>

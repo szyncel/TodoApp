@@ -1,14 +1,18 @@
+
 const express = require('express');
 const router = express.Router();
 var mongoose = require('mongoose');
 var _ = require('lodash');
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/angular-todo', {
-    useMongoClient: true
-  })
-  .then(() => console.log('connection successful'))
-  .catch((err) => console.error(err));
+// mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb://localhost/angular-todo', {
+//     useMongoClient: true
+//   })
+//   .then(() => console.log('connection successful'))
+//   .catch((err) => console.error(err));
+var {
+  mongoose
+} = require('../db/db');
 
 const {
   ObjectID
@@ -27,7 +31,7 @@ var {
 
 
 /* ADD TODO */
-router.post('/',authenticate, (req, res) => {
+router.post('/', authenticate, (req, res) => {
   var todo = new Todo({
     title: req.body.title,
     description: req.body.description,
