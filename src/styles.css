@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import "~bootstrap/dist/css/bootstrap.css"; */
+
+@import "./app/bootstrap.min.css";
 @import "./app/form-style.css";
 @import url('https://fonts.googleapis.com/css?family=Lato');
-body{
-    font-family:'Lato', sans-serif;;
-    background-color: rgb(255, 252, 208);
+body {
+  font-family: 'Lato', sans-serif;
+  ;
+  background-color: rgb(255, 252, 208);
 }
-.bg-primary{
-    background-color: rgb(151, 56, 56)!important;
+
+.bg-primary {
+  background-color: rgb(151, 56, 56)!important;
 }
