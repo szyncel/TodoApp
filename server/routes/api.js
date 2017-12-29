@@ -4,15 +4,17 @@ const router = express.Router();
 var mongoose = require('mongoose');
 var _ = require('lodash');
 
-// mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://localhost/angular-todo', {
-//     useMongoClient: true
-//   })
-//   .then(() => console.log('connection successful'))
-//   .catch((err) => console.error(err));
-var {
-  mongoose
-} = require('../db/db');
+//mongodb://szyncel:szynka123@ds235877.mlab.com:35877/angular-todo
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://szyncel:szynka123@ds235877.mlab.com:35877/angular-todo', {
+    useMongoClient: true
+  })
+  .then(() => console.log('connection successful'))
+  .catch((err) => console.error(err));
+// var {
+//   mongoose
+// } = require('../db/db');
 
 const {
   ObjectID
