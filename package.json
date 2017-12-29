@@ -2,26 +2,27 @@
   "name": "todo-app",
   "version": "0.0.0",
   "license": "MIT",
-  "main":"server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --prod --aot",
+    "deploy": "git push origin master && git push heroku master"
   },
   "engines": {
     "node": "8.9.3",
-    "npm":"5.5.1"
+    "npm": "5.5.1"
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "1.6.1",
-    "@angular/compiler-cli": "^5.0.0",
     "@angular/animations": "^5.0.0",
+    "@angular/cli": "1.6.1",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",
@@ -33,7 +34,7 @@
     "axios": "^0.17.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
-    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap": "^4.0.0-beta.3",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
