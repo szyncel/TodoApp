@@ -1,4 +1,4 @@
-// require('./server/config/config');
+require('./server/config/config');
 // Get dependencies
 const express = require('express');
 const path = require('path');

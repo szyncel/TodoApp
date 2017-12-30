@@ -33,3 +33,11 @@ form {
 .primary{
   width: 100%;
 }
+
+.container{
+  margin-top: 3%;
+}
+
+h1{
+  font-weight: bold;
+}

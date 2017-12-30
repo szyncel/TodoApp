@@ -6,15 +6,15 @@ var _ = require('lodash');
 
 //mongodb://szyncel:szynka123@ds235877.mlab.com:35877/angular-todo
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://szyncel:szynka123@ds235877.mlab.com:35877/angular-todo', {
-    useMongoClient: true
-  })
-  .then(() => console.log('connection successful'))
-  .catch((err) => console.error(err));
-// var {
-//   mongoose
-// } = require('../db/db');
+// mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb://szyncel:szynka123@ds235877.mlab.com:35877/angular-todo', {
+//     useMongoClient: true
+//   })
+//   .then(() => console.log('connection successful'))
+//   .catch((err) => console.error(err));
+var {
+  mongoose
+} = require('../db/db');
 
 const {
   ObjectID
@@ -41,7 +41,6 @@ router.post('/', authenticate, (req, res) => {
     status: req.body.status,
     _creator: req.body._creator
   });
-  // console.log(todo);
   todo.save().then((doc) => {
     res.send(doc);
   }, (e) => {
@@ -74,7 +73,6 @@ router.get('/:id', (req, res) => {
     res.status(200).send({
       todo
     });
-    // console.log({todo});
   }).catch((e) => {
     res.status(400).send({});
   });
